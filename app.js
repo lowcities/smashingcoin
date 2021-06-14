@@ -9,6 +9,7 @@ class CryptoBlock {  // class to create new block on the block chain
         this.data = data;
         this.precedingHash = precedingHash;
         this.hash =this.computeHash();
+        
     }
     computeHash() {
         return SHA256(this.index + this.precedingHash + this.timestamp + JSON.stringify(this.data)).toString();
@@ -30,10 +31,28 @@ class CryptoBlockchain {
         newBlock.precedingHash = this.obtainLatestBlock().hash;
         newBlock.hash = newBlock.computeHash();
         this.blockchain.push(newBlock);
-
+        this.checkChainValidity();
+        
     }
+    checkChainValidity() {
+        for(let i = 1; 1 <= this.blockchain.length; i++) {
+            const currentBlock = this.blockchain[i];
+            const precedingBlock = this.blockchain[i -1];
+
+            if(currentBlock.hash !== currentBlock.computeHash() | currentBlock.precedingHash !== precedingBlock.hash) {
+                return console.log("Blockchain Invalid");
+            }
+            else {
+                
+                return console.log("Blockchain is valid");
+            }
+
+            
+        }
+    }
+    
 }
 
 let smashingCoin = new CryptoBlockchain();
 smashingCoin.addNewBlock(new CryptoBlock(1, Date.now(), {sender: "David", recipient: "Ashley", quantity: 100}));
-console.log(JSON.stringify(smashingCoin, null, 4));
+console.log(JSON.stringify(smashingCoin,  null, 4));
