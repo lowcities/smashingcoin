@@ -1,0 +1,10 @@
+{
+    "name": "smashing-coin",
+    "version": "1.0.0",
+    "description": "Blockchain creator",
+    "license": "MIT",
+    "dependencies": {
+        "crypto-js": "^4.0.0"
+    }
+
+}
