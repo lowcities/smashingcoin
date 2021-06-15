@@ -3,5 +3,5 @@
   I made a few tweaks to the code but otherwise it it copied verbatim. I am facinated by blockchain technology and am a Node.js student, so this was a great pairing for me to learn concepts from both technologies.
   
 ### Prerequisites
-  Node.js
-  crypto-js
+  - Node.js
+  - crypto-js
